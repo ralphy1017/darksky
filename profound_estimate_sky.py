@@ -120,24 +120,28 @@ def calculate_sky_profound(sky_data, rms_data, bin_size = 64, dq_data = None, dq
 			badpxregs.append(ci)
 
 		all_skys.append(sky)
+		all_rms.append(sky_rms)
 
 
 
 	#### RMS MAP #####
 
 	# Make cutouts of SKYRMS MAP
-	cutout_shape, rms_cutouts = bin_image(use_array=True, data_array=rms_data, bin_size=(bin_size,bin_size),
-		bin_origin = 'lower left', show_image = False, ignore_borders = False, border = 0)
+		
+###		
+	# cutout_shape, rms_cutouts = bin_image(use_array=True, data_array=rms_data, bin_size=(bin_size,bin_size),
+	# 	bin_origin = 'lower left', show_image = False, ignore_borders = False, border = 0)
 
-	# Calculate subreigon information from SKY MAP
-	for ci, c in enumerate(rms_cutouts):
+	# # Calculate subreigon information from SKY MAP
+	# for ci, c in enumerate(rms_cutouts):
 
-		# Calculate the sky of the subregion (which is really the sky RMS of the subregion) and the RMS of the RMS
-		rms, rms_rms = measureskybin(c.data,axis=0)
+	# 	# Calculate the sky of the subregion (which is really the sky RMS of the subregion) and the RMS of the RMS
+	# 	rms, rms_rms = measureskybin(c.data,axis=0)
 
 
-		all_rms.append(rms)
-
+	# 	all_rms.append(rms)
+###
+		
 	# for ci, c in enumerate(cutouts):
 
 	# 	sky, rms = measureskybin(c.data,axis=0)
